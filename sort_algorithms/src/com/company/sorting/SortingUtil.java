@@ -69,6 +69,25 @@ public class SortingUtil {
         return arr;
     }
 
+    public static int iterativeFactorial(int num) {
+        if (num == 0) {
+            return 1;
+        }
+
+        int factorial = 1;
+        for (int i = 1; i <= num; i++) {
+            factorial *= i;
+        }
+        return factorial;
+    }
+
+    public static int recursiveFactorial(int num) {
+        if (num == 1) {
+            return 1;
+        }
+        return num * recursiveFactorial(num - 1);
+    }
+
     private static void swap(int[] arr, int index1, int index2) {
         if (index1 == index2) {
             return;
@@ -76,5 +95,71 @@ public class SortingUtil {
         int tmp = arr[index1];
         arr[index1] = arr[index2];
         arr[index2] = tmp;
+    }
+
+    public static int[] mergeSort(int[] arr, int start, int end) {
+        if (end - start < 2) {
+            return null;
+        }
+
+        // do partitioning
+        int mid = (start + end) / 2;
+
+        mergeSort(arr, start, mid);
+        mergeSort(arr, mid, end);
+        merge(arr, start, mid, end);
+        return arr;
+    }
+
+    private static void merge(int[] arr, int start, int mid, int end) {
+        if (arr[mid - 1] <= arr[mid]) {
+            return;
+        }
+
+        int i = start;
+        int j = mid;
+        int tempIndex = 0;
+
+        int[] temp = new int[end - start];
+         while (i < mid && j < end) {
+             temp[tempIndex++] = arr[i] <= arr[j] ? arr[i++] : arr[j++];
+         }
+
+         System.arraycopy(arr, i, arr, start + tempIndex, mid - i);
+         System.arraycopy(temp, 0, arr, start, tempIndex);
+    }
+
+    public static int[] quickSort(int[] arr, int start, int end) {
+        if (end - start < 2) {
+            return null;
+        }
+
+        int pivotIndex = partition(arr, start, end);
+        quickSort(arr, start, pivotIndex);
+        quickSort(arr, pivotIndex + 1, end);
+        return arr;
+    }
+
+    private static int partition(int[] arr, int start, int end) {
+        int pivot = arr[start];
+        int i = start;
+        int j = end;
+
+        while (i < j) {
+            // NOTE: empty loop body
+            while (i < j && arr[--j] >= pivot);
+            if (i < j) {
+                arr[i] = arr[j];
+            }
+
+            // NOTE: empty loop body
+            while (i < j && arr[++i] <= pivot);
+            if (i < j) {
+                arr[j] = arr[i];
+            }
+        }
+
+        arr[j] = pivot;
+        return j;
     }
 }

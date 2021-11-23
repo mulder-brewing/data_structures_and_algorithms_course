@@ -8,8 +8,11 @@ import java.security.InvalidParameterException;
 
 public class SortingUtilTest {
 
-    private static int[] UNSORTED_ARRAY = new int[] { 5, 3, 1, 2, 6, 4 };
-    private static int[] SORTED_ARRAY = new int[] { 1, 2, 3, 4, 5, 6 };
+    private static final int[] SORTED_ARRAY = new int[] { 1, 2, 3, 4, 5, 6 };
+    
+    private static int[] generateUnsortedArray() {
+        return new int[] { 5, 3, 1, 2, 6, 4 };
+    }
 
     @Test
     void test_bubbleSort_nullArray() {
@@ -28,7 +31,7 @@ public class SortingUtilTest {
 
     @Test
     void test_bubbleSort_success() {
-        Assertions.assertArrayEquals(SORTED_ARRAY, SortingUtil.bubbleSort(UNSORTED_ARRAY));
+        Assertions.assertArrayEquals(SORTED_ARRAY, SortingUtil.bubbleSort(generateUnsortedArray()));
     }
 
     @Test
@@ -43,17 +46,37 @@ public class SortingUtilTest {
 
     @Test
     void test_selectionSort_success() {
-        Assertions.assertArrayEquals(SORTED_ARRAY, SortingUtil.selectionSort(UNSORTED_ARRAY));
+        Assertions.assertArrayEquals(SORTED_ARRAY, SortingUtil.selectionSort(generateUnsortedArray()));
     }
 
     @Test
     void test_insertionSort_success() {
-        Assertions.assertArrayEquals(SORTED_ARRAY, SortingUtil.insertionSort(UNSORTED_ARRAY));
+        Assertions.assertArrayEquals(SORTED_ARRAY, SortingUtil.insertionSort(generateUnsortedArray()));
     }
 
     @Test
     void test_insertionSort_shellSort() {
-        Assertions.assertArrayEquals(SORTED_ARRAY, SortingUtil.shellSort(UNSORTED_ARRAY));
+        Assertions.assertArrayEquals(SORTED_ARRAY, SortingUtil.shellSort(generateUnsortedArray()));
+    }
+
+    @Test
+    void test_iterativeFactorial() {
+        Assertions.assertEquals(6, SortingUtil.iterativeFactorial(3));
+    }
+
+    @Test
+    void test_recursiveFactorial() {
+        Assertions.assertEquals(6, SortingUtil.recursiveFactorial(3));
+    }
+
+    @Test
+    void test_mergeSort() {
+        Assertions.assertArrayEquals(SORTED_ARRAY, SortingUtil.mergeSort(generateUnsortedArray(), 0, SORTED_ARRAY.length));
+    }
+
+    @Test
+    void test_quickSort() {
+        Assertions.assertArrayEquals(SORTED_ARRAY, SortingUtil.quickSort(generateUnsortedArray(), 0, SORTED_ARRAY.length));
     }
 
 }
