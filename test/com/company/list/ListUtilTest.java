@@ -1,8 +1,8 @@
 package com.company.list;
 
-import com.company.list.model.Employee;
 import com.company.list.model.linked_list.doubly.EmployeeDoublyLinkedList;
 import com.company.list.model.linked_list.single.integer.IntegerLinkedList;
+import com.company.model.Employee;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,6 +1,6 @@
 package com.company.list.model.linked_list.doubly;
 
-import com.company.list.model.Employee;
+import com.company.model.Employee;
 
 import java.util.Objects;
 

@@ -1,8 +1,8 @@
 package com.company.list;
 
-import com.company.list.model.Employee;
 import com.company.list.model.linked_list.doubly.EmployeeDoublyLinkedList;
 import com.company.list.model.linked_list.single.employee.EmployeeLinkedList;
+import com.company.model.Employee;
 
 import java.util.*;
 
@@ -140,5 +140,5 @@ public class ListUtil {
             }
         }
     }
-    
+
 }

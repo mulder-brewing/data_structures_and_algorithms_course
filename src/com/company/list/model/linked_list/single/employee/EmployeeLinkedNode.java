@@ -1,6 +1,6 @@
 package com.company.list.model.linked_list.single.employee;
 
-import com.company.list.model.Employee;
+import com.company.model.Employee;
 
 public class EmployeeLinkedNode {
     private Employee employee;
