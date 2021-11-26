@@ -6,8 +6,7 @@ import org.junit.jupiter.api.function.Executable;
 
 import java.security.InvalidParameterException;
 
-public class SortingUtilTest {
-
+class SortingUtilTest {
     private static final int[] SORTED_ARRAY_ASC = new int[] { 1, 2, 3, 4, 5, 6 };
     private static final int[] SORTED_ARRAY_DSC = new int[] { 6, 5, 4, 3, 2, 1 };
 
@@ -127,5 +126,4 @@ public class SortingUtilTest {
         Assertions.assertArrayEquals(new String[] { "abcde", "bbbbb", "bcdef", "dbaqc", "omadd" },
                 SortingUtil.radixSort_challenge(new String[] { "bcdef", "dbaqc", "abcde", "omadd", "bbbbb" }, 5));
     }
-
 }
