@@ -3,6 +3,9 @@ package com.company.queue;
 import com.company.model.Employee;
 import com.company.queue.model.ArrayQueue;
 import com.company.queue.model.CircularQueue;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.LinkedList;
 
 public class QueueUtil {
 
@@ -44,5 +47,29 @@ public class QueueUtil {
         queue.add(tonyMontanna);
 
         queue.printQueue();
+    }
+
+    public static boolean isPalindrome(String s) {
+        if (StringUtils.isBlank(s)) {
+            return false;
+        }
+
+        LinkedList<Character> stack = new LinkedList<>();
+        LinkedList<Character> queue = new LinkedList<>();
+        String sUpper = s.toUpperCase();
+
+        for (int i = 0; i < sUpper.length(); i++) {
+            Character c = sUpper.charAt(i);
+            if (c >= 'A' && c <= 'Z') {
+                stack.push(c);
+                queue.add(c);
+            }
+        }
+
+        if (stack.isEmpty()) {
+            return false;
+        }
+
+        return stack.equals(queue);
     }
 }
